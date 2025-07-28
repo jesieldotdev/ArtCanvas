@@ -1,3 +1,4 @@
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -18,12 +19,15 @@ import androidx.compose.ui.unit.dp
 fun NiceSearchBar(
     query: String,
     onClearQuery: () -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onQueryChange: (String) -> Unit
+
 ) {
-    val onQueryChange = null
+//    val onQueryChange = query.s
     OutlinedTextField(
         value = query,
-        onValueChange = { onQueryChange },
+        onValueChange = { onQueryChange(it) },
+
         modifier = modifier
             .fillMaxWidth()
             .padding(horizontal = 16.dp, vertical = 8.dp),
@@ -51,6 +55,9 @@ fun NiceSearchBar(
             focusedIndicatorColor = Color.Transparent,
             unfocusedIndicatorColor = Color.Transparent,
             disabledIndicatorColor = Color.Transparent,
+
+
         )
+
     )
 }

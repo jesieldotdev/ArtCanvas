@@ -5,7 +5,9 @@ import androidx.compose.foundation.interaction.PressInteraction
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -34,8 +36,8 @@ fun ArtistCardRow(
     artist: Artist,
     onClick: () -> Unit = {}
 ) {
-    val padding = 16.dp
-    val gap = 8.dp
+    val padding = 20.dp
+    val gap = 0.dp
     val imageSize = 64.dp
     val cornerRadius = 8.dp
     val interactionSource = remember { MutableInteractionSource() }
@@ -52,17 +54,7 @@ fun ArtistCardRow(
         label = "elevation"
     )
 
-    Surface(
-        tonalElevation = elevation,
-        shape = RoundedCornerShape(12.dp),
-        modifier = Modifier
-            .fillMaxWidth()
-            .clickable(
 
-                onClick = onClick
-            )
-            .padding(horizontal = padding, vertical = padding / 2)
-    ) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(gap),
@@ -70,6 +62,16 @@ fun ArtistCardRow(
                 .fillMaxWidth()
                 .padding(padding / 2)
         ) {
+            Surface(
+                tonalElevation = elevation,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .clickable(
+
+                        onClick = onClick
+                    ),
+                        shape = RoundedCornerShape(12.dp),
+            ) {
 //            AsyncImage(
 //                model = artist.image,
 //                contentDescription = artist.name,
@@ -78,7 +80,7 @@ fun ArtistCardRow(
 //                    .clip(RoundedCornerShape(cornerRadius)),
 //                contentScale = ContentScale.Crop,
 //            )
-            Column(modifier = Modifier.weight(1f)) {
+            Column(modifier = Modifier.weight(1f).padding(12.dp), ) {
                 Text(
                     artist.title,
                     style = TextStyle(
@@ -87,6 +89,7 @@ fun ArtistCardRow(
                     ),
                     color = MaterialTheme.colorScheme.onSurface
                 )
+                Spacer(modifier = Modifier.height(4.dp))
                 Text(
                     artist.sort_title,
                     style = TextStyle(
@@ -94,6 +97,7 @@ fun ArtistCardRow(
                     )
                 )
             }
+            }
         }
     }
-}
+
