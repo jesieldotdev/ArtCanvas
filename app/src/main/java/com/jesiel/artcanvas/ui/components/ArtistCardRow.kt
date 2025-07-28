@@ -70,17 +70,17 @@ fun ArtistCardRow(
                 .fillMaxWidth()
                 .padding(padding / 2)
         ) {
-            AsyncImage(
-                model = artist.image,
-                contentDescription = artist.name,
-                modifier = Modifier
-                    .size(imageSize)
-                    .clip(RoundedCornerShape(cornerRadius)),
-                contentScale = ContentScale.Crop,
-            )
+//            AsyncImage(
+//                model = artist.image,
+//                contentDescription = artist.name,
+//                modifier = Modifier
+//                    .size(imageSize)
+//                    .clip(RoundedCornerShape(cornerRadius)),
+//                contentScale = ContentScale.Crop,
+//            )
             Column(modifier = Modifier.weight(1f)) {
                 Text(
-                    artist.name,
+                    artist.title,
                     style = TextStyle(
                         fontSize = 18.sp,
                         fontWeight = FontWeight.Bold,
@@ -88,7 +88,7 @@ fun ArtistCardRow(
                     color = MaterialTheme.colorScheme.onSurface
                 )
                 Text(
-                    artist.lastSeenOnline,
+                    artist.sort_title,
                     style = TextStyle(
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )

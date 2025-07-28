@@ -1,7 +1,7 @@
-data class Artist(
+data class ArtistMock(
     val name: String,
     val lastSeenOnline: String = "",
     val image: String
 )
 
-typealias Artists = List<Artist>
+typealias ArtistsMock = List<ArtistMock>
